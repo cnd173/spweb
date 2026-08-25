@@ -71,22 +71,28 @@ có. Cùng cái form ấy, gọi đúng tên, vẫn có người điền.
 
 ### Bật lên
 
-1. Tạo Google Form với **đúng hai câu hỏi**, cả hai để kiểu **Trả lời ngắn** (short answer):
-   - `Email`
-   - `Bạn đang làm gì`
+1. Tạo Google Form với **đúng một câu hỏi**, kiểu **Trả lời ngắn** (short answer), tên `Email`.
 
-   Phải là *Trả lời ngắn*, đừng dùng trắc nghiệm: trắc nghiệm chỉ nhận đúng các phương án đã khai,
-   lệch một chữ là Google **lặng lẽ vứt** câu trả lời đi.
+   Phải là *Trả lời ngắn*. Đừng dùng trắc nghiệm hay kiểu Email có kiểm tra định dạng: những kiểu ấy
+   chỉ nhận đúng thứ Google chờ đợi, lệch một chút là nó **lặng lẽ vứt** câu trả lời đi — mà bên
+   ngoài vẫn báo "đã ghi nhận" (xem mục dưới). Trang này đã tự kiểm định dạng email rồi.
 
-2. Lấy ba giá trị:
-   - **action** — mở form ở chế độ xem trước, xem mã nguồn trang, tìm `action="…/formResponse"`.
-     Chú ý đuôi là `formResponse`, **không phải** `viewform`.
-   - **entry_email**, **entry_role** — trong cùng mã nguồn đó, mỗi câu hỏi có một `entry.NNNNNNNNN`.
+2. Đặt form ở chế độ ai có link cũng điền được, rồi lấy hai giá trị từ mã nguồn trang form:
+   - **action** — `action="…/formResponse"`. Chú ý đuôi là `formResponse`, **không phải** `viewform`.
+   - **entry_email** — `entry.NNNNNNNNN` của câu hỏi đó.
+
+   Ngại mò thì cứ đưa link `viewform`; hai giá trị trên đọc được từ chính trang đó.
 
 3. Điền vào `_config.yml` mục `waitlist`, đổi `enabled` thành `true`, commit và đẩy lên.
 
 `enabled: false` thì nút ở trang chủ **không hiện** và `/try/` báo "chưa mở đăng ký" — cố ý: thà
 không có nút còn hơn có một cái nút dẫn tới form gửi vào hư không.
+
+### Muốn hỏi thêm "bạn đang làm gì"
+
+Thêm một câu Trả lời ngắn nữa vào Google Form, thêm `entry_role` vào `_config.yml`, và thêm một ô
+`<select>` trong `try/index.html`. Email đã thu được **không mất đi** — cột mới chỉ bắt đầu có dữ
+liệu từ lúc thêm.
 
 ### Một điều phải biết về thông báo "Đã ghi nhận"
 

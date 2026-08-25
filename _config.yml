@@ -43,4 +43,3 @@ waitlist:
   # https://docs.google.com/forms/d/e/XXXX/formResponse   (chú ý: formResponse, không phải viewform)
   action: ""
   entry_email: ""   # ví dụ: entry.1234567890
-  entry_role: ""    # ví dụ: entry.9876543210

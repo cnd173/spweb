@@ -215,7 +215,11 @@ img { max-width:100%; height:auto; }
 .wl-result p + p { margin-top:.75rem; color:var(--text-2); }
 .wl-result-err { border-left-color:var(--amber-600); margin-top:1.5rem; }
 
-/* Nút nằm trong grid nên mặc định bị kéo rộng bằng cả form (26rem) — thừa trên màn to. Cho nó bám
-   trái, giữ nguyên bề ngang tự nhiên; xuống mobile mới trải rộng cho dễ bấm bằng ngón cái. */
-.wl-form .btn { justify-self:start; }
-@media (max-width:640px) { .wl-form .btn { justify-self:stretch; text-align:center; } }
+/* Một ô thì để ô và nút nằm cùng hàng — nhìn ra ngay là chỗ điền vào rồi bấm, không phải một biểu
+   mẫu dài. Xuống hẹp thì xếp chồng, nút trải rộng cho dễ bấm bằng ngón cái. */
+.wl-row { display:grid; grid-template-columns:1fr auto; gap:.6rem; align-items:start; }
+.wl-row .btn { white-space:nowrap; }
+@media (max-width:520px) {
+  .wl-row { grid-template-columns:1fr; }
+  .wl-row .btn { text-align:center; }
+}

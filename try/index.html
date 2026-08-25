@@ -28,27 +28,14 @@ description: Chưa có bản dùng thử. Để lại email, có bản đầu ti
        LẠC QUAN, không phải xác nhận. Đối chiếu Sheet sau vài lượt đầu — xem README. -->
   <form id="waitlist" class="wl-form" novalidate>
     <div class="field">
-      <label for="wl-email">Email <span class="req" aria-hidden="true">*</span></label>
-      <input id="wl-email" name="email" type="email" autocomplete="email" required
-             placeholder="ban@vidu.com" inputmode="email">
+      <label for="wl-email">Email</label>
+      <div class="wl-row">
+        <input id="wl-email" name="email" type="email" autocomplete="email" required
+               placeholder="ban@vidu.com" inputmode="email">
+        <button class="btn" type="submit" id="wl-submit">Đăng ký</button>
+      </div>
       <p class="field-err" id="wl-email-err" hidden>Email này trông chưa đúng.</p>
     </div>
-
-    <div class="field">
-      <label for="wl-role">Bạn đang làm gì?</label>
-      <select id="wl-role" name="role">
-        <option value="">— chọn nếu tiện —</option>
-        <option>Biên kịch</option>
-        <option>Nhà sản xuất</option>
-        <option>Đạo diễn</option>
-        <option>Trợ lý sản xuất / thư ký trường quay</option>
-        <option>Sinh viên, người mới học</option>
-        <option>Khác</option>
-      </select>
-      <p class="field-note">Câu này giúp chúng tôi biết ai đang chờ, và làm gì trước.</p>
-    </div>
-
-    <button class="btn" type="submit" id="wl-submit">Đăng ký</button>
 
     <p class="field-note consent">
       Chúng tôi dùng email này cho đúng một việc: báo bạn khi có bản dùng thử. Không chia sẻ cho bên
@@ -92,8 +79,6 @@ description: Chưa có bản dùng thử. Để lại email, có bản đầu ti
 
     var data = new FormData();
     data.append({{ site.waitlist.entry_email | jsonify }}, emailEl.value.trim());
-    var role = document.getElementById('wl-role').value;
-    if (role) data.append({{ site.waitlist.entry_role | jsonify }}, role);
 
     fetch({{ site.waitlist.action | jsonify }}, { method: 'POST', mode: 'no-cors', body: data })
       .then(function () {
