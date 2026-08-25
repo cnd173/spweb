@@ -39,7 +39,7 @@ exclude:
 #
 # Lấy ba giá trị đó ở đâu: xem README, mục "Danh sách chờ".
 waitlist:
-  enabled: false
+  enabled: true
   # https://docs.google.com/forms/d/e/XXXX/formResponse   (chú ý: formResponse, không phải viewform)
-  action: ""
-  entry_email: ""   # ví dụ: entry.1234567890
+  action: "https://docs.google.com/forms/d/e/1FAIpQLSc6xhaSUqbA3gEfmpSWqhBOZ1IBkfGo0MOk33yJdvHY3bClgg/formResponse"
+  entry_email: "entry.697140843"
