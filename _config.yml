@@ -33,3 +33,14 @@ plugins:
 
 exclude:
   - README.md
+
+# Danh sách chờ. `enabled: false` thì nút và trang /try/ KHÔNG hiện — cố ý: thà không có nút còn hơn
+# có một cái nút dẫn tới form gửi đi hư không. Bật lên sau khi điền đủ ba giá trị dưới.
+#
+# Lấy ba giá trị đó ở đâu: xem README, mục "Danh sách chờ".
+waitlist:
+  enabled: false
+  # https://docs.google.com/forms/d/e/XXXX/formResponse   (chú ý: formResponse, không phải viewform)
+  action: ""
+  entry_email: ""   # ví dụ: entry.1234567890
+  entry_role: ""    # ví dụ: entry.9876543210

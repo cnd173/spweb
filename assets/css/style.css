@@ -37,6 +37,10 @@
 }
 
 *,*::before,*::after { box-sizing:border-box; }
+/* `display` trong CSS ĐÈ thuộc tính `hidden` của HTML — .wl-form có display:grid nên đặt
+   form.hidden = true không ẩn được gì cả. Đã đo thật: khối "đã gửi" hiện ra mà form vẫn nằm nguyên
+   đó. Luật này chặn cho mọi phần tử, không riêng cái form. */
+[hidden] { display:none !important; }
 html { -webkit-text-size-adjust:100%; }
 body {
   margin:0; background:var(--canvas); color:var(--text);
@@ -173,3 +177,45 @@ img { max-width:100%; height:auto; }
 }
 .site-foot p { margin:0 0 .75rem; max-width:var(--measure); }
 .muted { color:var(--text-3); }
+
+/* ── Nút và biểu mẫu ───────────────────────────────────────────────────── */
+.btn {
+  display:inline-block; border:0; cursor:pointer;
+  background:var(--action); color:var(--action-ink);
+  font-family:inherit; font-size:16px; line-height:24px; font-weight:600;
+  padding:.75rem 1.5rem; border-radius:var(--radius); text-decoration:none;
+}
+.btn:hover { background:var(--amber-400); }
+.btn:disabled { opacity:.6; cursor:default; }
+.btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline:2px solid var(--action); outline-offset:2px;
+}
+.cta-row { margin:2.25rem 0 0; }
+
+.wl-form { max-width:26rem; display:grid; gap:1.5rem; }
+.field { display:grid; gap:.4rem; }
+.field label { font-size:14px; line-height:20px; font-weight:600; }
+.req { color:var(--amber-600); }
+.field input, .field select {
+  font-family:inherit; font-size:16px; line-height:24px; color:var(--text);
+  background:var(--surface); border:1px solid var(--border-strong);
+  border-radius:var(--radius); padding:.65rem .8rem; width:100%;
+}
+.field input::placeholder { color:var(--text-3); }
+.field-note { margin:0; font-size:14px; line-height:20px; color:var(--text-3); }
+.field-err { margin:0; font-size:14px; line-height:20px; color:var(--amber-600); font-weight:600; }
+.consent { max-width:26rem; }
+
+.wl-result {
+  max-width:26rem; padding:1.5rem 1.75rem;
+  background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--action);
+  border-radius:var(--radius);
+}
+.wl-result p { margin:0; }
+.wl-result p + p { margin-top:.75rem; color:var(--text-2); }
+.wl-result-err { border-left-color:var(--amber-600); margin-top:1.5rem; }
+
+/* Nút nằm trong grid nên mặc định bị kéo rộng bằng cả form (26rem) — thừa trên màn to. Cho nó bám
+   trái, giữ nguyên bề ngang tự nhiên; xuống mobile mới trải rộng cho dễ bấm bằng ngón cái. */
+.wl-form .btn { justify-self:start; }
+@media (max-width:640px) { .wl-form .btn { justify-self:stretch; text-align:center; } }

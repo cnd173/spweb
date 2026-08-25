@@ -59,3 +59,41 @@ writing/             danh sách bài
 about/               giới thiệu
 robots.txt           chặn đánh chỉ mục (xem trên)
 ```
+
+## Danh sách chờ (nút "Đăng ký dùng thử sớm")
+
+Trang tĩnh không có backend, nên form gửi thẳng sang **Google Forms** — dữ liệu đổ vào Sheet của chủ
+sở hữu, không qua bên thứ ba nào. Người điền không thấy Google Form: giao diện là của trang này.
+
+**Cố ý không gọi là "Dùng thử".** Chưa có gì để thử. Một cái nút hứa bản dùng thử rồi mở ra form
+"sẽ liên hệ sau" là danh sách chờ đội lốt, và nó đốt đúng thứ duy nhất một sản phẩm chưa ra mắt đang
+có. Cùng cái form ấy, gọi đúng tên, vẫn có người điền.
+
+### Bật lên
+
+1. Tạo Google Form với **đúng hai câu hỏi**, cả hai để kiểu **Trả lời ngắn** (short answer):
+   - `Email`
+   - `Bạn đang làm gì`
+
+   Phải là *Trả lời ngắn*, đừng dùng trắc nghiệm: trắc nghiệm chỉ nhận đúng các phương án đã khai,
+   lệch một chữ là Google **lặng lẽ vứt** câu trả lời đi.
+
+2. Lấy ba giá trị:
+   - **action** — mở form ở chế độ xem trước, xem mã nguồn trang, tìm `action="…/formResponse"`.
+     Chú ý đuôi là `formResponse`, **không phải** `viewform`.
+   - **entry_email**, **entry_role** — trong cùng mã nguồn đó, mỗi câu hỏi có một `entry.NNNNNNNNN`.
+
+3. Điền vào `_config.yml` mục `waitlist`, đổi `enabled` thành `true`, commit và đẩy lên.
+
+`enabled: false` thì nút ở trang chủ **không hiện** và `/try/` báo "chưa mở đăng ký" — cố ý: thà
+không có nút còn hơn có một cái nút dẫn tới form gửi vào hư không.
+
+### Một điều phải biết về thông báo "Đã ghi nhận"
+
+Google Forms không cho trang khác đọc phản hồi (CORS), nên trình duyệt gửi ở chế độ `no-cors`:
+`fetch` chỉ ngã khi **đứt mạng thật**, còn Google có nhận hay không thì trang này không biết được.
+Nghĩa là dòng "Đã ghi nhận" là **lạc quan**, không phải xác nhận.
+
+Không có cách nào vòng qua chuyện này với trang tĩnh. Cách sống chung: **đối chiếu Sheet** sau vài
+lượt đăng ký đầu tiên. Sai `entry.NNN` là hỏng đúng kiểu này — người dùng thấy "đã ghi nhận", Sheet
+trống trơn, không ai báo cho ai cả.

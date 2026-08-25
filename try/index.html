@@ -1,0 +1,119 @@
+---
+layout: default
+title: Đăng ký dùng thử sớm
+description: Chưa có bản dùng thử. Để lại email, có bản đầu tiên chúng tôi báo bạn.
+---
+{%- if site.waitlist.enabled %}
+<article class="post wrap">
+  <header class="post-head" style="margin-top:2rem">
+    <h1>Đăng ký dùng thử sớm</h1>
+    <!-- KHÔNG gọi đây là "bản dùng thử". Chưa có gì để thử, và nói vống lên ở ngay cú bấm đầu tiên
+         là cách nhanh nhất đốt thứ duy nhất một sản phẩm chưa ra mắt đang có. -->
+    <p class="lede">
+      Hiện chưa có bản dùng thử và chưa có bản tải về. Để lại email, có bản đầu tiên chúng tôi báo bạn.
+    </p>
+  </header>
+
+  <div class="prose" style="margin-bottom:2.5rem">
+    <p><strong>Nói trước cho rõ:</strong></p>
+    <ul>
+      <li>Chưa có ngày cụ thể. Chúng tôi không hứa một cái mốc chưa chắc.</li>
+      <li>Bạn sẽ nhận thư khi có bản dùng thử — không phải thư quảng cáo hằng tuần.</li>
+      <li>Muốn theo tiến độ thì đọc <a href="{{ '/writing/' | relative_url }}">phần bài viết</a>; ở đó cập nhật thường xuyên hơn hòm thư của bạn.</li>
+    </ul>
+  </div>
+
+  <!-- Gửi thẳng sang Google Forms. `mode: no-cors` nên trình duyệt KHÔNG đọc được phản hồi: fetch chỉ
+       ngã khi đứt mạng thật, còn lại luôn coi như xong. Nghĩa là thông báo thành công ở đây là
+       LẠC QUAN, không phải xác nhận. Đối chiếu Sheet sau vài lượt đầu — xem README. -->
+  <form id="waitlist" class="wl-form" novalidate>
+    <div class="field">
+      <label for="wl-email">Email <span class="req" aria-hidden="true">*</span></label>
+      <input id="wl-email" name="email" type="email" autocomplete="email" required
+             placeholder="ban@vidu.com" inputmode="email">
+      <p class="field-err" id="wl-email-err" hidden>Email này trông chưa đúng.</p>
+    </div>
+
+    <div class="field">
+      <label for="wl-role">Bạn đang làm gì?</label>
+      <select id="wl-role" name="role">
+        <option value="">— chọn nếu tiện —</option>
+        <option>Biên kịch</option>
+        <option>Nhà sản xuất</option>
+        <option>Đạo diễn</option>
+        <option>Trợ lý sản xuất / thư ký trường quay</option>
+        <option>Sinh viên, người mới học</option>
+        <option>Khác</option>
+      </select>
+      <p class="field-note">Câu này giúp chúng tôi biết ai đang chờ, và làm gì trước.</p>
+    </div>
+
+    <button class="btn" type="submit" id="wl-submit">Đăng ký</button>
+
+    <p class="field-note consent">
+      Chúng tôi dùng email này cho đúng một việc: báo bạn khi có bản dùng thử. Không chia sẻ cho bên
+      thứ ba, không dùng vào việc khác. Muốn gỡ khỏi danh sách thì trả lời lại thư bất kỳ.
+    </p>
+  </form>
+
+  <div id="wl-ok" class="wl-result" hidden>
+    <p><strong>Đã ghi nhận.</strong></p>
+    <p>Có bản dùng thử là bạn nằm trong nhóm được báo đầu tiên. Trong lúc chờ, tiến độ nằm ở
+      <a href="{{ '/writing/' | relative_url }}">phần bài viết</a>.</p>
+  </div>
+
+  <div id="wl-err" class="wl-result wl-result-err" hidden>
+    <p><strong>Chưa gửi được.</strong></p>
+    <p>Có vẻ mạng đang trục trặc. Thử lại giúp chúng tôi, hoặc để lát nữa quay lại.</p>
+  </div>
+</article>
+
+<script>
+(function () {
+  var form = document.getElementById('waitlist');
+  var emailEl = document.getElementById('wl-email');
+  var emailErr = document.getElementById('wl-email-err');
+  var btn = document.getElementById('wl-submit');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    emailErr.hidden = true;
+
+    // Kiểm tại chỗ: Google Forms nhận bừa mọi thứ, nên sai email là mất luôn người đó mà không ai
+    // biết. Chặn ở đây rẻ hơn nhiều.
+    if (!emailEl.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+      emailErr.hidden = false;
+      emailEl.focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Đang gửi…';
+
+    var data = new FormData();
+    data.append({{ site.waitlist.entry_email | jsonify }}, emailEl.value.trim());
+    var role = document.getElementById('wl-role').value;
+    if (role) data.append({{ site.waitlist.entry_role | jsonify }}, role);
+
+    fetch({{ site.waitlist.action | jsonify }}, { method: 'POST', mode: 'no-cors', body: data })
+      .then(function () {
+        form.hidden = true;
+        document.getElementById('wl-ok').hidden = false;
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Đăng ký';
+        document.getElementById('wl-err').hidden = false;
+      });
+  });
+})();
+</script>
+{%- else %}
+<!-- Danh sách chờ chưa bật. Trang vẫn tồn tại để link cũ không gãy, nhưng không dựng form gửi đi
+     hư không. -->
+<section class="hero wrap">
+  <h1 style="font-size:32px; line-height:38px">Chưa mở đăng ký.</h1>
+  <p class="descriptor">Khi mở, chỗ đăng ký sẽ nằm ở đây.</p>
+  <p style="margin-top:2rem"><a href="{{ '/' | relative_url }}">← Về trang chủ</a></p>
+</section>
+{%- endif %}

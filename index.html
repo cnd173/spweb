@@ -19,6 +19,12 @@ layout: default
     </p>
   </div>
 
+  {%- if site.waitlist.enabled %}
+  <p class="cta-row">
+    <a class="btn" href="{{ '/try/' | relative_url }}">Đăng ký dùng thử sớm</a>
+  </p>
+  {%- endif %}
+
   <!-- Nói thật trạng thái sản phẩm. Luật công ty: không mô tả thứ chưa phát hành như thể đã phát
        hành, và tên gọi hiện còn ở trạng thái tạm (chưa thẩm định nhãn hiệu). -->
   <p class="status">
