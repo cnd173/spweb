@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<!-- Chuỗi thương hiệu ở khối này lấy NGUYÊN VĂN từ _config.yml (vốn chép từ BRAND_GUIDELINES).
+     Đừng viết lại thành câu khác: bản tiếng Anh này là bản ĐÃ DUYỆT, mọi biến thể đều là chuỗi mới
+     chưa ai duyệt. Muốn đổi → sửa ở sp/docs/brand/ trước. -->
+<section class="hero wrap">
+  <h1>{{ site.brand.headline }}</h1>
+  <p class="descriptor">
+    {{ site.brand.descriptor }} — không gian làm việc dựng quanh chính kịch bản, thay vì bắt kịch bản
+    nằm rời trong một trình soạn thảo còn mọi thứ khác nằm ở chỗ khác.
+  </p>
+
+  <div class="proof">
+    <p>{{ site.brand.proof }}</p>
+    <p>
+      Cảnh, nhân vật, bối cảnh và lịch quay cùng đọc từ một bản kịch bản. Sửa kịch bản thì những thứ
+      dựa vào nó biết là mình vừa đổi.
+    </p>
+  </div>
+
+  <!-- Nói thật trạng thái sản phẩm. Luật công ty: không mô tả thứ chưa phát hành như thể đã phát
+       hành, và tên gọi hiện còn ở trạng thái tạm (chưa thẩm định nhãn hiệu). -->
+  <p class="status">
+    Phần mềm đang trong quá trình phát triển, chưa phát hành công khai và chưa có bản tải về. Trang
+    này là nơi ghi lại quá trình làm ra nó. Tên gọi hiện tại là tên tạm.
+  </p>
+</section>
+
+<section class="section wrap">
+  <h2>Mới nhất</h2>
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts limit: 5 %}
+    <li>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d/%m/%Y' }}</time></p>
+      {%- if post.description %}<p class="dek">{{ post.description }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% if site.posts.size > 5 %}
+  <p style="margin-top:2rem"><a href="{{ '/writing/' | relative_url }}">Xem tất cả bài viết →</a></p>
+  {% endif %}
+  {% else %}
+  <div class="empty">
+    <p>Chưa có bài nào.</p>
+    <p>Bài đầu tiên sẽ xuất hiện ở đây khi được duyệt.</p>
+  </div>
+  {% endif %}
+</section>

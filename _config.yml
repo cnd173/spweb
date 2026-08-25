@@ -1,0 +1,35 @@
+# Trang web Singularity Pencil — Jekyll do GitHub Pages tự build (không có toolchain nào chạy ở máy).
+#
+# Vì sao Jekyll chứ không phải HTML tĩnh thuần như sovweb: bài viết ở đây do đường tự động thả vào,
+# và Jekyll cho phép thả ĐÚNG MỘT file `_posts/YYYY-MM-DD-ten-bai.md` là trang chủ tự cập nhật.
+# HTML thuần thì mỗi bài phải vừa tạo file vừa sửa index — hai lần ghi phải khớp nhau, và đó là chỗ
+# một đường tự động sẽ vỡ.
+title: Singularity Pencil
+description: Screenplay-native production workspace
+url: https://cnd173.github.io
+# Đây là project page nên site nằm dưới /spweb. Nối tên miền riêng thì đổi baseurl thành "" và sửa
+# url — xem README.
+baseurl: /spweb
+lang: en
+
+# Chuỗi thương hiệu lấy nguyên văn từ docs/brand/BRAND_GUIDELINES.md của repo sp (mục "Internal
+# versus external language"). Đây là bản ĐÃ DUYỆT — đừng sửa ở đây, sửa ở nguồn rồi chép sang.
+brand:
+  headline: Bring stories to life, scene by scene.
+  descriptor: Screenplay-native production workspace
+  proof: From first draft to shooting day.
+
+# TRƯỚC PHÁT HÀNH: chặn đánh chỉ mục. Tên thương hiệu còn ở trạng thái Provisional (chưa thẩm định
+# nhãn hiệu), nên site sống được nhưng không đẩy ra kết quả tìm kiếm. Gỡ = xoá dòng này và sửa
+# robots.txt. Xem README.
+noindex: true
+
+permalink: /writing/:title/
+timezone: Asia/Ho_Chi_Minh
+
+# jekyll-feed nằm sẵn trong bộ github-pages nên không cần cài gì; nó sinh /feed.xml.
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md

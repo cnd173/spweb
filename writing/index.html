@@ -1,0 +1,26 @@
+---
+layout: default
+title: Bài viết
+description: Ghi chép về quá trình làm Singularity Pencil.
+---
+<section class="section wrap" style="border-top:0; padding-top:3rem">
+  <h1 style="font-size:32px; line-height:38px; font-weight:600; letter-spacing:-.02em; margin:0 0 .75rem">Bài viết</h1>
+  <p class="lede" style="margin-bottom:2.5rem">Ghi chép về quá trình làm ra {{ site.title }}.</p>
+
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d/%m/%Y' }}</time></p>
+      {%- if post.description %}<p class="dek">{{ post.description }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <div class="empty">
+    <p>Chưa có bài nào.</p>
+    <p>Bài đầu tiên sẽ xuất hiện ở đây khi được duyệt.</p>
+  </div>
+  {% endif %}
+</section>

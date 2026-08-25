@@ -1,0 +1,175 @@
+/* Singularity Pencil — trang web
+ *
+ * Mọi màu và cỡ chữ dưới đây chép NGUYÊN VĂN từ sp/docs/brand/tokens.json. Đừng chế màu mới ở đây:
+ * token là nguồn sự thật, file này chỉ là chỗ dùng lại. Cần màu chưa có → thêm vào tokens.json trước.
+ */
+
+:root {
+  /* Mực (ink) */
+  --ink-900:#070806; --ink-850:#0B0D0C; --ink-800:#111310; --ink-700:#181A16;
+  --ink-600:#20231D; --ink-500:#2B2E26; --ink-400:#3A3D33;
+  /* Kem (cream) */
+  --cream-50:#FFFDF7; --cream-100:#FDF3D8; --cream-200:#FCEFD0; --cream-300:#EEDBB7;
+  --cream-400:#C9BFA9; --cream-500:#918877;
+  /* Hổ phách (amber) — màu hành động */
+  --amber-300:#FFD66B; --amber-400:#FFC235; --amber-500:#F8AA08; --amber-600:#D98A00; --amber-800:#8A5600;
+
+  /* Ngữ nghĩa — nền sáng (mặc định) */
+  --canvas:var(--cream-50); --base:#FFF9EC; --surface:var(--cream-50);
+  --border:#DED3BD; --border-strong:var(--cream-400);
+  --text:#171815; --text-2:#595A51; --text-3:var(--cream-500);
+  --action:var(--amber-500); --action-ink:var(--ink-900); --link:var(--amber-800);
+
+  --wrap:min(68rem, 100% - 3rem);
+  --measure:38rem;
+  --radius:10px;
+  --font:'Manrope','Noto Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+:root { --canvas:#F7F2E7; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas:var(--ink-900); --base:var(--ink-850); --surface:var(--ink-800);
+    --border:var(--ink-600); --border-strong:var(--ink-500);
+    --text:var(--cream-100); --text-2:var(--cream-400); --text-3:var(--cream-500);
+    --action:var(--amber-500); --action-ink:var(--ink-900); --link:var(--amber-400);
+  }
+}
+
+*,*::before,*::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body {
+  margin:0; background:var(--canvas); color:var(--text);
+  font-family:var(--font); font-size:16px; line-height:24px; font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; min-height:100vh;
+}
+a { color:var(--link); text-decoration-thickness:1px; text-underline-offset:2px; }
+a:hover { text-decoration-thickness:2px; }
+img { max-width:100%; height:auto; }
+
+.wrap { width:var(--wrap); margin-inline:auto; }
+
+.skip {
+  position:absolute; left:-9999px; top:0; background:var(--surface); color:var(--text);
+  padding:.6rem 1rem; border-radius:var(--radius); z-index:10;
+}
+.skip:focus { left:1rem; top:1rem; }
+
+/* ── Đầu trang ─────────────────────────────────────────────────────────── */
+.site-head {
+  width:var(--wrap); margin-inline:auto;
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+  padding:1.5rem 0; flex-wrap:wrap;
+}
+.wordmark {
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-size:18px; font-weight:600; letter-spacing:-.01em;
+  color:var(--text); text-decoration:none;
+}
+/* Chưa có logo đã duyệt — dùng một dấu hình học trung tính thay vì bịa ra một cái dấu.
+   Có logo thật thì thay bằng <img>. */
+.wordmark-mark {
+  width:14px; height:14px; border-radius:3px;
+  background:var(--action); transform:rotate(45deg);
+}
+.site-nav { display:flex; gap:1.25rem; font-size:14px; line-height:20px; }
+.site-nav a { color:var(--text-2); text-decoration:none; }
+.site-nav a:hover { color:var(--text); text-decoration:underline; }
+
+/* ── Khối mở đầu ───────────────────────────────────────────────────────── */
+/* Luật kênh Website trong BRAND_GUIDELINES: dẫn bằng headline đã duyệt, đỡ bằng descriptor +
+   ĐÚNG MỘT khối proof. Không mở đầu bằng danh sách tính năng, không mở đầu bằng AI. */
+.hero { padding:4.5rem 0 3.5rem; }
+.hero h1 {
+  margin:0; font-size:48px; line-height:52px; font-weight:600; letter-spacing:-.03em;
+  max-width:20ch;
+}
+.hero .descriptor {
+  margin:1.25rem 0 0; font-size:18px; line-height:28px; color:var(--text-2); max-width:var(--measure);
+}
+.proof {
+  margin-top:2.5rem; padding:1.5rem 1.75rem;
+  background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--action);
+  border-radius:var(--radius); max-width:var(--measure);
+}
+.proof p:first-child {
+  margin:0; font-size:20px; line-height:26px; font-weight:600; letter-spacing:-.01em;
+}
+.proof p + p { margin:.75rem 0 0; color:var(--text-2); }
+
+.status {
+  margin-top:2.5rem; font-size:14px; line-height:20px; color:var(--text-3);
+  max-width:var(--measure);
+}
+
+@media (max-width:640px) {
+  .hero { padding:3rem 0 2.5rem; }
+  .hero h1 { font-size:34px; line-height:40px; }
+}
+
+/* ── Danh sách bài ─────────────────────────────────────────────────────── */
+.section { padding:3rem 0; border-top:1px solid var(--border); }
+.section > h2 {
+  margin:0 0 1.75rem; font-size:14px; line-height:20px; font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);
+}
+.post-list { list-style:none; margin:0; padding:0; display:grid; gap:1.5rem; }
+.post-list li { display:grid; gap:.35rem; }
+.post-list h3 { margin:0; font-size:20px; line-height:26px; font-weight:600; letter-spacing:-.01em; }
+.post-list h3 a { color:var(--text); text-decoration:none; }
+.post-list h3 a:hover { color:var(--link); }
+.post-list .post-meta { margin:0; }
+.post-list p.dek { margin:.15rem 0 0; color:var(--text-2); max-width:var(--measure); }
+.post-meta { font-size:14px; line-height:20px; color:var(--text-3); }
+.tag { margin-right:.5rem; }
+.dot { margin:0 .4rem; }
+
+.empty {
+  padding:2rem; border:1px dashed var(--border-strong); border-radius:var(--radius);
+  color:var(--text-2); max-width:var(--measure);
+}
+.empty p { margin:0; }
+.empty p + p { margin-top:.75rem; font-size:14px; line-height:20px; color:var(--text-3); }
+
+/* ── Bài viết ──────────────────────────────────────────────────────────── */
+.crumb { font-size:14px; line-height:20px; margin:1rem 0 2.5rem; }
+.crumb a { color:var(--text-2); text-decoration:none; }
+.crumb a:hover { color:var(--link); text-decoration:underline; }
+.post-head { margin-bottom:2.5rem; }
+.post-head h1 { margin:0 0 .75rem; font-size:32px; line-height:38px; font-weight:600; letter-spacing:-.02em; max-width:24ch; }
+.lede { margin:1rem 0 0; font-size:18px; line-height:28px; color:var(--text-2); max-width:var(--measure); }
+
+.prose { max-width:var(--measure); }
+.prose > * { margin-block:1.25rem; }
+.prose h2 { font-size:24px; line-height:30px; font-weight:600; letter-spacing:-.01em; margin-top:2.5rem; }
+.prose h3 { font-size:20px; line-height:26px; font-weight:600; margin-top:2rem; }
+.prose ul, .prose ol { padding-left:1.25rem; }
+.prose li + li { margin-top:.5rem; }
+.prose blockquote {
+  margin-inline:0; padding:.25rem 0 .25rem 1.25rem;
+  border-left:3px solid var(--border-strong); color:var(--text-2);
+}
+.prose code {
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9em;
+  background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:.1em .35em;
+}
+.prose pre {
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:1rem 1.25rem; overflow-x:auto;
+}
+.prose pre code { background:none; border:0; padding:0; }
+.prose img { border-radius:var(--radius); border:1px solid var(--border); }
+.prose hr { border:0; border-top:1px solid var(--border); }
+.prose table { width:100%; border-collapse:collapse; font-size:14px; line-height:20px; }
+.prose th, .prose td { text-align:left; padding:.6rem .75rem; border-bottom:1px solid var(--border); }
+.prose th { font-weight:600; color:var(--text-2); }
+
+/* ── Chân trang ────────────────────────────────────────────────────────── */
+.site-foot {
+  width:var(--wrap); margin:auto auto 0; padding:3rem 0 2.5rem;
+  border-top:1px solid var(--border);
+  font-size:14px; line-height:20px; color:var(--text-2);
+}
+.site-foot p { margin:0 0 .75rem; max-width:var(--measure); }
+.muted { color:var(--text-3); }

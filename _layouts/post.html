@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="post wrap">
+  <p class="crumb"><a href="{{ '/writing/' | relative_url }}">← Tất cả bài viết</a></p>
+
+  <header class="post-head">
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
+      {%- if page.tags and page.tags.size > 0 %}
+      <span class="dot" aria-hidden="true">·</span>
+      {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      {%- endif %}
+    </p>
+    {%- if page.description %}
+    <p class="lede">{{ page.description }}</p>
+    {%- endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

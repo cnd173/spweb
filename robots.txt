@@ -1,0 +1,5 @@
+# Trước phát hành: không cho bot nào đánh chỉ mục. Tên thương hiệu "Singularity Pencil" còn ở
+# trạng thái Provisional (docs/brand/TRADEMARK_AND_FONT_REVIEW.md) — site sống để xem được bài,
+# không phải để lên kết quả tìm kiếm. Gỡ chặn khi phát hành: xem README.
+User-agent: *
+Disallow: /
