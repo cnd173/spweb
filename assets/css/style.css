@@ -126,7 +126,13 @@ img { max-width:100%; height:auto; }
 .post-list .post-meta { margin:0; }
 .post-list p.dek { margin:.15rem 0 0; color:var(--text-2); max-width:var(--measure); }
 .post-meta { font-size:14px; line-height:20px; color:var(--text-3); }
-.tag { margin-right:.5rem; }
+/* Thẻ đứng cạnh ngày trên cùng một dòng meta, nên phải NHẸ hơn ngày chứ không nặng hơn: viền mảnh,
+   nền trong suốt, không màu nhấn. Thẻ là chỗ để mắt lướt qua, không phải chỗ để mắt dừng lại. */
+.tag {
+  display:inline-block; margin-right:.35rem; padding:.05rem .45rem;
+  border:1px solid var(--border); border-radius:999px;
+  font-size:12px; line-height:18px; color:var(--text-3); white-space:nowrap;
+}
 .dot { margin:0 .4rem; }
 
 .empty {
