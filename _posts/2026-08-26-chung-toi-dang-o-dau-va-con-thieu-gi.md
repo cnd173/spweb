@@ -2,6 +2,8 @@
 layout: post
 title: "Chúng tôi đang ở đâu, và còn thiếu gì"
 date: 2026-08-26 19:50:51 +0700
+description: "Bản nội bộ 0.1.0-rc1: những gì đã chạy được, những gì đang cố tình khóa lại, và vì sao chưa hứa ngày ra mắt nào."
+tags: ["trạng thái", "phát hành", "tính năng"]
 ---
 Bản đang chạy nội bộ là 0.1.0-rc1, đóng gói ngày 30/04/2026. Đây vẫn là một bản dựng thử nghiệm. Singularity Pencil chưa phát hành công khai, chưa có bản tải về cho người ngoài công ty, và chưa có bảng giá. Không có ngày ra mắt nào được chốt — nên bài này sẽ không hứa ngày nào cả.
 

@@ -2,6 +2,8 @@
 layout: post
 title: "AI trong Singularity Pencil: bạn mang khoá của mình"
 date: 2026-08-26 19:50:55 +0700
+description: "Vì sao các tính năng AI chạy bằng khoá API của chính bạn, và điều đó đổi gì về việc kịch bản của bạn đi tới đâu."
+tags: ["ai", "byok", "quyền riêng tư"]
 ---
 Bạn mở Rewrite, chọn một cảnh, bấm AI Rewrite. Câu hỏi trước khi bấm thường không phải "kết quả có tốt không" mà là: nội dung cảnh này đi đâu, và ai đứng giữa tôi và mô hình.
 

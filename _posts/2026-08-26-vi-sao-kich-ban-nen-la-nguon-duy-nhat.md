@@ -2,6 +2,8 @@
 layout: post
 title: "Vì sao kịch bản nên là nguồn duy nhất"
 date: 2026-08-26 19:30:03 +0700
+description: "Đoàn phim dựng đèn ngoài trời cho một cảnh đã đổi thành nội cảnh — chuyện xảy ra khi mỗi khâu sống trong một file riêng."
+tags: ["kịch bản", "quy trình", "breakdown"]
 ---
 Buổi sáng quay ở hiện trường, đạo diễn cầm bản kịch bản in tuần trước, trợ lý đạo diễn cầm lịch quay in đầu tuần, còn bảng phân cảnh nằm trong file Excel người quản lý sản xuất sửa tối qua. Ba bản, ba thời điểm. Cảnh 14 đã đổi bối cảnh từ ngoại cảnh sang nội cảnh hai ngày trước, biên kịch sửa trực tiếp trong file kịch bản rồi gửi qua nhóm chat. Bảng phân cảnh không tự cập nhật. Lịch quay không tự cập nhật. Đoàn phim dựng đèn ngoài trời cho một cảnh giờ quay trong nhà.
 
