@@ -7,7 +7,7 @@ tags: ["ai", "byok", "quyền riêng tư"]
 ---
 Bạn mở Rewrite, chọn một cảnh, bấm AI Rewrite. Câu hỏi trước khi bấm thường không phải "kết quả có tốt không" mà là: nội dung cảnh này đi đâu, và ai đứng giữa tôi và mô hình.
 
-Singularity Pencil trả lời câu hỏi đó bằng một lựa chọn kiến trúc: BYOK — bring your own key. Bạn tự tạo khoá API ở nhà cung cấp AI mình chọn, dán khoá đó vào sản phẩm, và các tính năng AI dùng khoá của bạn để gọi tới nhà cung cấp đó. Sản phẩm không bán token, không gộp chi phí AI vào giá.
+Singularity Pencil trả lời câu hỏi đó bằng một lựa chọn kiến trúc: BYOK — bring your own key. Bạn tự tạo khoá API ở OpenAI hoặc Anthropic, dán khoá đó vào sản phẩm, và các tính năng AI dùng khoá của bạn để gọi thẳng tới nhà cung cấp đó. Riêng phần sinh ảnh cho storyboard hiện chỉ chạy được với khoá OpenAI. Sản phẩm không bán token, không gộp chi phí AI vào giá.
 
 Vì sao không phải mô hình quen thuộc hơn — nơi sản phẩm tự lo phần AI, người dùng chỉ trả một mức phí gộp?
 
@@ -19,7 +19,7 @@ Hai câu hỏi mà người viết kịch bản thường hỏi trước tiên:
 
 **Ai trả tiền cho AI?** Bạn. Khoá là của bạn, hoá đơn là của bạn, trực tiếp với nhà cung cấp bạn chọn.
 
-Những chỗ AI hiện diện trong sản phẩm: AI Rewrite và Consistency Check ở giai đoạn Rewrite, Scene Variations để thử vài hướng khác cho cùng một cảnh, gợi ý trong Breakdown, tóm tắt cảnh trong Node Editor, và sinh ảnh cho storyboard. Tất cả đều dùng khoá do bạn cắm vào.
+Những chỗ AI hiện diện trong sản phẩm: viết lại cảnh ở giai đoạn Rewrite, gợi ý breakdown, tóm tắt cảnh trong Node Editor, và sinh ảnh cho storyboard. Tất cả đều dùng khoá do bạn cắm vào. Consistency Check và Scene Variations thì không dùng AI — một cái là bộ luật kiểm tra viết sẵn, một cái là các bản thử do chính bạn viết ra.
 
 Mã nguồn của Singularity Pencil là MIT. Điều này không trực tiếp trả lời câu hỏi về AI, nhưng cùng một logic: sản phẩm không giữ bạn lại bằng cách khoá bạn vào hạ tầng của mình — ở phần mã nguồn, và ở phần AI.
 
