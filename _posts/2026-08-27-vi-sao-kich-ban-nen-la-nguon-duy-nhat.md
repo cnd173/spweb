@@ -23,4 +23,4 @@ Cần đưa file cho AD hay tổ đạo cụ xem trước khi ra hiện trườn
 
 Một cảnh viết ra ở Write vẫn là chính cảnh đó khi nó hiện lên trên bảng breakdown, trên shot list, và trên tờ lịch quay AD cầm ở hiện trường — không phải một bản chép tay lại của nó, dễ lệch mỗi lần ai đó gõ lại số.
 
-Nội dung có sự hỗ trợ của AI, được con người duyệt.
+Nội dung có sự hỗ trợ của AI, được soát tự động trước khi đăng.
