@@ -15,7 +15,7 @@ Nhập và xuất định dạng Fountain và FDX, để không khóa người d
 
 File dự án lưu ở định dạng `.sp`, là một file ZIP chứa dữ liệu dự án — không nhúng font của bên thứ ba, chỉ lưu profile/hash/tham chiếu tới font mà máy người dùng đang có sẵn. Autosave chạy trên IndexedDB, và việc lưu là local-first bằng Yjs — nghĩa là dữ liệu ưu tiên nằm trên máy trước, không phụ thuộc một máy chủ đang chạy.
 
-Bản desktop dựng bằng Electron, có hộp thoại mở/lưu file gốc của hệ điều hành và tự gắn đuôi `.sp`. Storyboard theo từng cảnh là một image board: mỗi cảnh có các shot card kèm title/prompt/notes/status, sắp xếp lại được, nhận ảnh import/kéo-thả/dán, và import shot thẳng từ Visualize. Giai đoạn Rewrite gồm Draft Compare (so bản thảo), Notes & Feedback, Scene Variations, AI Rewrite, và Consistency Check. Breakdown chia 15 hạng mục sản xuất và xuất được ra CSV. Node Editor trình bày cấu trúc truyện dưới dạng đồ thị.
+Bản desktop dựng bằng Electron, có hộp thoại mở/lưu file gốc của hệ điều hành và tự gắn đuôi `.sp`. Storyboard theo từng cảnh là một image board: mỗi cảnh có các shot card kèm title/prompt/notes/status, sắp xếp lại được, nhận ảnh import/kéo-thả/dán, và import shot thẳng từ Visualize. Rewrite là một workspace soạn thảo riêng: bản gốc giữ nguyên không sửa được, bản viết lại nằm cạnh nó trong cùng editor, mỗi lần lưu là một mốc không ghi đè. Ba tác vụ chính là Workspace, Compare và Notes; Scene Variations, AI Rewrite và Consistency Check nằm trong nhóm công cụ mở rộng. Đưa bản viết lại về bản chính là một thao tác riêng, có tạo mốc phục hồi trước. Breakdown chia 15 hạng mục sản xuất và xuất được ra CSV. Node Editor trình bày cấu trúc truyện dưới dạng đồ thị.
 
 Phần chưa xong, hoặc đang cố tình khóa lại:
 
@@ -23,7 +23,7 @@ Cộng tác trực tuyến — nhiều người cùng sửa một kịch bản q
 
 Tên gọi "Singularity Pencil" hiện là tên tạm. Nó chưa qua thẩm định nhãn hiệu, và có thể sẽ đổi trước khi phát hành. Chúng tôi không coi đây là tên chính thức cho tới khi việc thẩm định xong.
 
-Bản ký số/notarize cho bản desktop — bước cần để hệ điều hành không cảnh báo "ứng dụng không rõ nguồn gốc" khi mở lần đầu — chưa hoàn tất. Smoke test cho bản web hosted cũng chưa chạy. Bản iOS chưa bắt đầu — trong repo mới chỉ có tài liệu phạm vi cho Phase 3, chưa có dòng mã nào để dùng thử.
+Bản ký số/notarize cho bản desktop — bước cần để hệ điều hành không cảnh báo "ứng dụng không rõ nguồn gốc" khi mở lần đầu — chưa hoàn tất. Smoke chức năng cho bản web hosted — onboarding, nhập/xuất, round-trip `.sp`, hành vi ngoại tuyến — cũng chưa chạy; lượt smoke đã làm chỉ phủ khả năng truy cập, độ mới của bundle và các header. Bản iOS chưa bắt đầu — trong repo mới chỉ có tài liệu phạm vi cho Phase 3, chưa có dòng mã nào để dùng thử.
 
 Về giấy phép: mã nguồn theo MIT. Phần AI trong sản phẩm theo mô hình BYOK (bring your own key) — người dùng tự cắm khóa API của họ, chúng tôi không cung cấp AI miễn phí hay không giới hạn kèm sản phẩm.
 

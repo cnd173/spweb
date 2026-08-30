@@ -17,7 +17,7 @@ Cái đáng nói không phải là "tự động cập nhật" — không có ph
 
 Đó là khác biệt giữa đồng bộ và báo lệch. Một cái tự sửa cho bạn, cái kia chỉ đảm bảo id của một cảnh cầm nguyên từ lúc bạn gõ scene heading ở Write cho tới lúc AD cầm tờ lịch quay ở Shoot, và lên tiếng khi hai đầu không còn khớp nhau.
 
-Nói rõ để không ai hiểu nhầm: Singularity Pencil hiện chưa phát hành công khai, chưa có bản để tải về. Những gì mô tả ở đây là thứ đang chạy được trong file dự án, không phải lời hứa cho một bản ra mắt nào đó.
+Nói rõ để không ai hiểu nhầm: Singularity Pencil hiện chưa phát hành công khai, chưa có bản để tải về. Những gì mô tả ở đây là thứ đang chạy trong bản dựng hiện tại, không phải lời hứa cho một bản ra mắt nào đó.
 
 Cần đưa file cho AD hay tổ đạo cụ xem trước khi ra hiện trường, cách làm hôm nay là lưu `.sp` và gửi file đó đi — không phải mở cùng lúc trên một phiên bản đang chạy.
 
