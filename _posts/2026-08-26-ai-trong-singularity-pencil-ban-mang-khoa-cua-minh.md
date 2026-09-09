@@ -19,7 +19,7 @@ Hai câu hỏi mà người viết kịch bản thường hỏi trước tiên:
 
 **Ai trả tiền cho AI?** Bạn. Khoá là của bạn, hoá đơn là của bạn, trực tiếp với nhà cung cấp bạn chọn.
 
-Những chỗ AI hiện diện trong sản phẩm: viết lại cảnh ở giai đoạn Rewrite, gợi ý breakdown, tóm tắt cảnh trong Node Editor, và sinh ảnh cho storyboard. Tất cả đều dùng khoá do bạn cắm vào. Consistency Check và Scene Variations thì không dùng AI — một cái là bộ luật kiểm tra viết sẵn, một cái là các bản thử do chính bạn viết ra.
+Những chỗ AI hiện diện trong sản phẩm: viết lại cảnh ở giai đoạn Rewrite, gợi ý breakdown, tóm tắt cảnh trong Story Graph, và sinh ảnh cho storyboard. Tất cả đều dùng khoá do bạn cắm vào. Consistency Check và Scene Variations thì không dùng AI — một cái là bộ luật kiểm tra viết sẵn, một cái là các bản thử do chính bạn viết ra.
 
 Mã nguồn của Singularity Pencil là MIT. Điều này không trực tiếp trả lời câu hỏi về AI, nhưng cùng một logic: sản phẩm không giữ bạn lại bằng cách khoá bạn vào hạ tầng của mình — ở phần mã nguồn, và ở phần AI.
 

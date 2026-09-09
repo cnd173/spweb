@@ -19,7 +19,7 @@ File cũng mang một document id ổn định xuyên suốt vòng đời dự �
 
 Việc lưu file cũng theo cùng logic: local-first. Autosave chạy trên IndexedDB ngay trên máy bạn, và cơ chế lưu dùng Yjs — dữ liệu ưu tiên nằm ở máy bạn trước, không phụ thuộc vào việc có một máy chủ nào đó đang chạy hay không. Cộng tác trực tuyến hiện đang bị khoá mặc định, vì máy chủ production cho tính năng đó chưa sẵn sàng. Cách chia sẻ dự án lúc này đơn giản hơn: lưu file `.sp`, gửi cho người cần xem. Không có máy chủ nào đứng giữa bạn và file của mình.
 
-Mã nguồn của công cụ này theo giấy phép MIT. Ai muốn đọc cách file được ghi ra, cách nó được phân tích, đều đọc được — không phải tin vào lời hứa.
+Mã nguồn của công cụ này theo giấy phép MIT. Và thứ bạn kiểm được ngay không cần tin ai: mở file `.sp` bằng một trình giải nén bình thường.
 
 Sản phẩm chưa phát hành công khai. Chưa có bản tải về, chưa có bảng giá, chưa có ngày ra mắt cụ thể. Tên gọi "Singularity Pencil" hiện là tên tạm, chưa qua thẩm định nhãn hiệu. Những gì viết ở trên là về cách file được thiết kế — không phải lời hứa về khi nào bạn cầm được nó trên tay.
 

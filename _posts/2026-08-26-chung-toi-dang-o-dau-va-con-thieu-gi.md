@@ -5,17 +5,17 @@ date: 2026-08-26 19:50:51 +0700
 description: "Bản nội bộ 0.1.0-rc1: những gì đã chạy được, những gì đang cố tình khóa lại, và vì sao chưa hứa ngày ra mắt nào."
 tags: ["trạng thái", "phát hành", "tính năng"]
 ---
-Bản đang chạy nội bộ vẫn mang số hiệu 0.1.0-rc1; bản đóng gói macOS mới nhất được dựng ngày 24/08/2026. Đây vẫn là một bản dựng thử nghiệm. Singularity Pencil chưa phát hành công khai, chưa có bản tải về cho người ngoài công ty, và chưa có bảng giá. Không có ngày ra mắt nào được chốt — nên bài này sẽ không hứa ngày nào cả.
+Bản đang chạy nội bộ vẫn mang số hiệu 0.1.0-rc1. Đây vẫn là một bản dựng thử nghiệm, chưa ký số. Singularity Pencil chưa phát hành công khai, chưa có bản tải về cho người ngoài công ty, và chưa có bảng giá. Không có ngày ra mắt nào được chốt — nên bài này sẽ không hứa ngày nào cả.
 
 Phần đã chạy được, ngay trong bản rc1:
 
 Trình soạn kịch bản dựng trên Tiptap/ProseMirror, nhận đủ các loại dòng của một kịch bản phim — action, dialogue, character, parenthetical, transition — và chuyển loại dòng bằng Tab hoặc Enter thay vì phải chọn menu. Gõ tiếng Việt bằng bộ gõ (IME) hoạt động trong khung soạn thảo; bộ kiểm tự động có phủ ca gõ tiếng Việt dạng precomposed.
 
-Nhập và xuất định dạng Fountain và FDX, để không khóa người dùng vào một định dạng riêng ngay từ đầu. Xuất PDF và DOCX cho khâu in ấn hoặc gửi đọc. Beat Board, Outline, và Character Tracker để theo cấu trúc và nhân vật song song với bản thảo.
+Nhập và xuất định dạng Fountain và FDX, để không khóa người dùng vào một định dạng riêng ngay từ đầu. Xuất PDF và DOCX cho khâu in ấn hoặc gửi đọc. Beat Board, Outline, và Characters để theo cấu trúc và nhân vật song song với bản thảo.
 
 File dự án lưu ở định dạng `.sp`, là một file ZIP chứa dữ liệu dự án — không nhúng font của bên thứ ba, chỉ lưu profile/hash/tham chiếu tới font mà máy người dùng đang có sẵn. Autosave chạy trên IndexedDB, và việc lưu là local-first bằng Yjs — nghĩa là dữ liệu ưu tiên nằm trên máy trước, không phụ thuộc một máy chủ đang chạy.
 
-Bản desktop dựng bằng Electron, có hộp thoại mở/lưu file gốc của hệ điều hành và tự gắn đuôi `.sp`. Storyboard theo từng cảnh là một image board: mỗi cảnh có các shot card kèm title/prompt/notes/status, sắp xếp lại được, nhận ảnh import/kéo-thả/dán, và import shot thẳng từ Visualize. Rewrite là một workspace soạn thảo riêng: bản gốc giữ nguyên không sửa được, bản viết lại nằm cạnh nó trong cùng editor, mỗi lần lưu là một mốc không ghi đè. Ba tác vụ chính là Workspace, Compare và Notes; Scene Variations, AI Rewrite và Consistency Check nằm trong nhóm công cụ mở rộng. Đưa bản viết lại về bản chính là một thao tác riêng, có tạo mốc phục hồi trước. Breakdown chia 15 hạng mục sản xuất và xuất được ra CSV. Node Editor trình bày cấu trúc truyện dưới dạng đồ thị.
+Bản desktop dựng bằng Electron, có hộp thoại mở/lưu file gốc của hệ điều hành và tự gắn đuôi `.sp`. Storyboard theo từng cảnh là một image board: mỗi cảnh có các shot card kèm title/prompt/notes/status, sắp xếp lại được, nhận ảnh import/kéo-thả/dán, và import shot thẳng từ Visualize. Rewrite là một workspace soạn thảo riêng: bản gốc giữ nguyên không sửa được, bản viết lại nằm cạnh nó trong cùng editor, mỗi lần lưu là một mốc không ghi đè. Ba tác vụ chính là Workspace, Compare và Notes; Scene Variations, AI Rewrite và Consistency Check nằm trong nhóm công cụ mở rộng. Đưa bản viết lại về bản chính là một thao tác riêng, có tạo mốc phục hồi trước. Breakdown chia 15 hạng mục sản xuất và xuất được ra CSV. Story Graph trình bày cấu trúc truyện dưới dạng đồ thị.
 
 Phần chưa xong, hoặc đang cố tình khóa lại:
 
